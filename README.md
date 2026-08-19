@@ -18,7 +18,7 @@ Instead of applying the handcrafted cellular automata rules, the model predicts 
 
 ## 🎥 Demo
 
-![Demo](demo.gif)
+![Demo](gif.gif)
 
 ---
 
