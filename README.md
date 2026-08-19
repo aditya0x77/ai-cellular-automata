@@ -20,7 +20,7 @@ Instead of applying the handcrafted cellular automata rules, the model predicts 
 
 > Add a GIF here
 
-![Demo](assets/demo.gif)
+![Demo](demo.gif)
 
 ---
 
