@@ -18,8 +18,6 @@ Instead of applying the handcrafted cellular automata rules, the model predicts 
 
 ## 🎥 Demo
 
-> Add a GIF here
-
 ![Demo](demo.gif)
 
 ---
