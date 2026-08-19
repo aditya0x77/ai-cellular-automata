@@ -1,134 +1,81 @@
-# AI Game of Life
+# 🧠 Neural Game of Life
 
-A neural network that learns to simulate Conway's Game of Life.
+A convolutional neural network that learns to simulate **Conway's Game of Life**.
 
-Instead of applying the handcrafted cellular automata rules every generation, this project trains a convolutional neural network to predict the next board state directly from the current one.
-
-The result is a real-time AI-powered simulation accelerated with PyTorch and visualized using VisPy.
+Instead of applying the handcrafted cellular automata rules, the model predicts the next board state through neural network inference. The simulation runs in real time using **PyTorch** and **VisPy**.
 
 ---
 
-## Features
+## ✨ Features
 
-- CNN predicts the next generation of the Game of Life
-- GPU acceleration with PyTorch
-- Real-time visualization using VisPy
-- Large simulation grids (1000×1000)
-- Demonstrates how neural networks can approximate deterministic algorithms
+- 🧠 CNN predicts the next generation
+- ⚡ GPU acceleration with PyTorch
+- 🎮 Real-time visualization with VisPy
+- 📈 Large 1000×1000 simulation grids
+- 🔬 AI learns deterministic cellular automata
 
 ---
 
-## Demo
+## 🎥 Demo
 
-Add a GIF here:
+> Add a GIF here
 
 ![Demo](assets/demo.gif)
 
 ---
 
-## How it Works
+## ⚙️ How It Works
 
-1. A random Game of Life board is generated.
-2. The pretrained CNN receives the current board as input.
-3. The model predicts the next generation.
-4. The output is thresholded into alive/dead cells.
-5. The process repeats continuously.
-
-Unlike the classic implementation, the evolution is performed entirely through neural network inference.
+1. 🎲 Generate a random Game of Life board.
+2. 🧠 Feed the board into the pretrained CNN.
+3. 📊 Predict the next generation.
+4. ✅ Apply a threshold to produce alive/dead cells.
+5. 🔁 Repeat continuously.
 
 ---
 
-## Model
+## 🏗️ Model
 
-Architecture:
-
-- Conv2D (1 → 16)
-- ReLU
-- Conv2D (16 → 16)
-- ReLU
-- Conv2D (16 → 1)
-- Sigmoid
-- Threshold (0.5)
+```
+Input
+  ↓
+Conv2D (1 → 16)
+  ↓
+ReLU
+  ↓
+Conv2D (16 → 16)
+  ↓
+ReLU
+  ↓
+Conv2D (16 → 1)
+  ↓
+Sigmoid
+  ↓
+Threshold
+  ↓
+Output
+```
 
 The network was trained on examples generated using the original Conway's Game of Life rules.
 
 ---
 
-## Installation
-
-Clone the repository:
+## ▶️ Running
 
 ```bash
-git clone https://github.com/yourusername/ai-game-of-life.git
-
-cd ai-game-of-life
+python simulate.py
 ```
 
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
+CUDA is used automatically when available.
 
 ---
 
-## Running
-
-```bash
-python game_of_life.py
-```
-
-If CUDA is available, the model automatically runs on the GPU.
-
----
-
-## Requirements
+## 📦 Requirements
 
 - Python 3.10+
 - PyTorch
 - NumPy
 - VisPy
 
-Example:
-
-```bash
-pip install torch numpy vispy
-```
-
 ---
 
-## Repository
-
-```
-.
-├── game_of_life.py
-├── game_of_life_cnn.pth
-├── notebooks/
-├── assets/
-└── README.md
-```
-
----
-
-## Future Improvements
-
-- Train deeper CNN architectures
-- Compare AI accuracy against the exact Game of Life rules
-- Export simulations as GIFs
-- Interactive drawing mode
-- Performance benchmarking (CPU vs GPU)
-- Larger training datasets
-
----
-
-## Inspiration
-
-Conway's Game of Life is a classic cellular automaton where simple local rules generate surprisingly complex behavior.
-
-This project explores whether a convolutional neural network can learn those rules purely from data.
-
----
-
-## License
-
-MIT License
