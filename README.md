@@ -56,24 +56,4 @@ Output
 
 The network was trained on examples generated using the original Conway's Game of Life rules.
 
----
-
-## ▶️ Running
-
-```bash
-python simulate.py
-```
-
-CUDA is used automatically when available.
-
----
-
-## 📦 Requirements
-
-- Python 3.10+
-- PyTorch
-- NumPy
-- VisPy
-
----
 
