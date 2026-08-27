@@ -1,59 +1,63 @@
-# 🧠 Neural Game of Life
+# Neural Game of Life
 
 A convolutional neural network that learns to simulate **Conway's Game of Life**.
 
-Instead of applying the handcrafted cellular automata rules, the model predicts the next board state through neural network inference. The simulation runs in real time using **PyTorch** and **VisPy**.
+Instead of applying the handcrafted cellular automata rules, the model predicts the next board state directly from the current board using a convolutional neural network. The learned model is then used to evolve the simulation continuously.
 
 ---
 
-## ✨ Features
-
-- 🧠 CNN predicts the next generation
-- ⚡ GPU acceleration with PyTorch
-- 🎮 Real-time visualization with VisPy
-- 📈 Large 1000×1000 simulation grids
-- 🔬 AI learns deterministic cellular automata
-
----
-
-## 🎥 Demo
+## Demo
 
 ![Demo](gif.gif)
 
 ---
 
-## ⚙️ How It Works
+## Features
 
-1. 🎲 Generate a random Game of Life board.
-2. 🧠 Feed the board into the pretrained CNN.
-3. 📊 Predict the next generation.
-4. ✅ Apply a threshold to produce alive/dead cells.
-5. 🔁 Repeat continuously.
+- Learns Conway's Game of Life from examples rather than explicit rules.
+- Predicts the next generation using a convolutional neural network.
+- Interactive visualization built with **VisPy**.
+- Supports simulations on **1000 × 1000** grids.
+- Implemented and trained using **PyTorch**.
 
 ---
 
-## 🏗️ Model
+## How It Works
 
-```
+The simulation begins with a randomly initialized Game of Life board.
+
+For each generation:
+
+1. The current board is passed to the trained CNN.
+2. The network predicts the next board state.
+3. The output is thresholded to obtain binary alive/dead cells.
+4. The predicted board becomes the input for the next iteration.
+
+This process repeats continuously to produce the evolving simulation.
+
+---
+
+## Model Architecture
+
+```text
 Input
-  ↓
+  │
+  ▼
 Conv2D (1 → 16)
-  ↓
+  │
 ReLU
-  ↓
+  │
 Conv2D (16 → 16)
-  ↓
+  │
 ReLU
-  ↓
+  │
 Conv2D (16 → 1)
-  ↓
+  │
 Sigmoid
-  ↓
+  │
 Threshold
-  ↓
+  ▼
 Output
 ```
 
-The network was trained on examples generated using the original Conway's Game of Life rules.
-
-
+The network was trained on board states generated using the original Conway's Game of Life rules, allowing it to learn the underlying transition function directly from data.
